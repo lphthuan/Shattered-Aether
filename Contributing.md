@@ -58,10 +58,11 @@ This allows the enemy to investigate sounds within a defined radius.
 
 * **File Conflict**
 
-File `.unity` (Scene) là file nhị phân phức tạp, rất khó merge nếu 2 người sửa cùng lúc.
+  * File `.unity` (Scene) là file nhị phân phức tạp, rất khó merge nếu 2 người sửa cùng lúc.
+  
 **Giải pháp:**
-   * Thông báo cho team trước khi bạn định sửa một Scene nào đó.
-   * Ưu tiên làm việc trên **Prefabs**. Biến mọi thứ thành Prefab và sửa Prefab đó, hạn chế sửa trực tiếp trên Scene.
+  * Thông báo cho team trước khi bạn định sửa một Scene nào đó.
+  * Ưu tiên làm việc trên **Prefabs**. Biến mọi thứ thành Prefab và sửa Prefab đó, hạn chế sửa trực tiếp trên Scene.
 
 * **File nặng (Assets)**
    * Dự án sử dụng **Git LFS** cho các file lớn (Model, Texture, Audio).
