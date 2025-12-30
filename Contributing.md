@@ -3,10 +3,10 @@
 Tài liệu này tóm tắt các điểm quan trọng nhất dành cho những người quan tâm đến việc đóng góp vào dự án, đặc biệt là thông qua báo cáo lỗi (Bug Reports) hoặc gửi yêu cầu (Pull Requests).
 
 ## Mục lục
-- Tạo vấn đề
-- Quy trình gửi Pull Request
-- Quy tắc viết Commit Message
-- Quy trình làm việc với Unity
+- [Tạo vấn đề](#Tạo-vấn-đề)
+- [Quy trình gửi Pull Request](#Quy-trình-gửi-Pull-Request)
+- [Quy tắc viết Commit Message](#Quy-tắc-viết-Commit-Message)
+- [Lưu ý](#lưu-ý)
 
 ## Tạo vấn đề
 
@@ -48,7 +48,7 @@ Sử dụng tiền tố để chỉ định khu vực bị ảnh hưởng:
 
 **Ví dụ mẫu**
 ```text
-feat: Add hearing sensor to Enemy AI
+Feat: Add hearing sensor to Enemy AI
 
 Implement a noise detection system using the NoiseManager event.
 This allows the enemy to investigate sounds within a defined radius.
@@ -56,14 +56,14 @@ This allows the enemy to investigate sounds within a defined radius.
 
 ## Lưu ý
 
-**File Conflict**
+* **File Conflict**
 
 File `.unity` (Scene) là file nhị phân phức tạp, rất khó merge nếu 2 người sửa cùng lúc.
-* **Giải pháp:**
-    * Thông báo cho team trước khi bạn định sửa một Scene nào đó.
-    * Ưu tiên làm việc trên **Prefabs**. Biến mọi thứ thành Prefab và sửa Prefab đó, hạn chế sửa trực tiếp trên Scene.
+**Giải pháp:**
+   * Thông báo cho team trước khi bạn định sửa một Scene nào đó.
+   * Ưu tiên làm việc trên **Prefabs**. Biến mọi thứ thành Prefab và sửa Prefab đó, hạn chế sửa trực tiếp trên Scene.
 
-**File nặng (Assets)**
-* Dự án sử dụng **Git LFS** cho các file lớn (Model, Texture, Audio).
-* Không commit toàn bộ asset, hãy ignore và chỉ kéo những file cần sử dụng.
-* Hạn chế commit các file nháp, file PSD/Blend nặng nếu không cần thiết.
+* **File nặng (Assets)**
+   * Dự án sử dụng **Git LFS** cho các file lớn (Model, Texture, Audio).
+   * Không commit toàn bộ asset, hãy ignore và chỉ kéo những file cần sử dụng.
+   * Hạn chế commit các file nháp, file PSD/Blend nặng nếu không cần thiết.
