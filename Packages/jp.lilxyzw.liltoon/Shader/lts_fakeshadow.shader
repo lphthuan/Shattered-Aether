@@ -13,43 +13,6 @@ Shader "_lil/[Optional] lilToonFakeShadow"
         [lilVec3Float]  _FakeShadowVector           ("sFakeShadowVectors", Vector) = (0,0,0,0.05)
 
         //----------------------------------------------------------------------------------------------------------------------
-        // Encryption
-        [lilToggle]     _IgnoreEncryption           ("sIgnoreEncryption", Int) = 0
-                        _Keys                       ("sKeys", Vector) = (0,0,0,0)
-                        _BitKey0                    ("_BitKey0", Float) = 0
-                        _BitKey1                    ("_BitKey1", Float) = 0
-                        _BitKey2                    ("_BitKey2", Float) = 0
-                        _BitKey3                    ("_BitKey3", Float) = 0
-                        _BitKey4                    ("_BitKey4", Float) = 0
-                        _BitKey5                    ("_BitKey5", Float) = 0
-                        _BitKey6                    ("_BitKey6", Float) = 0
-                        _BitKey7                    ("_BitKey7", Float) = 0
-                        _BitKey8                    ("_BitKey8", Float) = 0
-                        _BitKey9                    ("_BitKey9", Float) = 0
-                        _BitKey10                   ("_BitKey10", Float) = 0
-                        _BitKey11                   ("_BitKey11", Float) = 0
-                        _BitKey12                   ("_BitKey12", Float) = 0
-                        _BitKey13                   ("_BitKey13", Float) = 0
-                        _BitKey14                   ("_BitKey14", Float) = 0
-                        _BitKey15                   ("_BitKey15", Float) = 0
-                        _BitKey16                   ("_BitKey16", Float) = 0
-                        _BitKey17                   ("_BitKey17", Float) = 0
-                        _BitKey18                   ("_BitKey18", Float) = 0
-                        _BitKey19                   ("_BitKey19", Float) = 0
-                        _BitKey20                   ("_BitKey20", Float) = 0
-                        _BitKey21                   ("_BitKey21", Float) = 0
-                        _BitKey22                   ("_BitKey22", Float) = 0
-                        _BitKey23                   ("_BitKey23", Float) = 0
-                        _BitKey24                   ("_BitKey24", Float) = 0
-                        _BitKey25                   ("_BitKey25", Float) = 0
-                        _BitKey26                   ("_BitKey26", Float) = 0
-                        _BitKey27                   ("_BitKey27", Float) = 0
-                        _BitKey28                   ("_BitKey28", Float) = 0
-                        _BitKey29                   ("_BitKey29", Float) = 0
-                        _BitKey30                   ("_BitKey30", Float) = 0
-                        _BitKey31                   ("_BitKey31", Float) = 0
-
-        //----------------------------------------------------------------------------------------------------------------------
         // Advanced
         [lilEnum]                                       _Cull               ("sCullModes", Int) = 2
         [Enum(UnityEngine.Rendering.BlendMode)]         _SrcBlend           ("sSrcBlendRGB", Int) = 2
@@ -208,7 +171,6 @@ Shader "_lil/[Optional] lilToonFakeShadow"
             #pragma skip_variants DECALS_OFF DECALS_3RT DECALS_4RT DECAL_SURFACE_GRADIENT _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
             #pragma skip_variants VERTEXLIGHT_ON LIGHTPROBE_SH
             #pragma skip_variants _ADDITIONAL_LIGHT_SHADOWS
-            #pragma skip_variants PROBE_VOLUMES_OFF PROBE_VOLUMES_L1 PROBE_VOLUMES_L2
             #pragma skip_variants _SCREEN_SPACE_OCCLUSION
             #pragma skip_variants USE_FPTL_LIGHTLIST USE_CLUSTERED_LIGHTLIST
             #pragma skip_variants _REFLECTION_PROBE_BLENDING _REFLECTION_PROBE_BOX_PROJECTION
@@ -249,6 +211,7 @@ Shader "_lil/[Optional] lilToonFakeShadow"
             #pragma fragment frag
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
             #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+            #pragma multi_compile _ PROBE_VOLUMES_L1 PROBE_VOLUMES_L2
             #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
             #pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
             #pragma multi_compile_fragment _ _REFLECTION_PROBE_BOX_PROJECTION
@@ -257,7 +220,7 @@ Shader "_lil/[Optional] lilToonFakeShadow"
             #pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
             #pragma multi_compile _ _LIGHT_LAYERS
             #pragma multi_compile_fragment _ _LIGHT_COOKIES
-            #pragma multi_compile _ _FORWARD_PLUS
+            #pragma multi_compile _ _CLUSTER_LIGHT_LOOP
             #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
             #pragma multi_compile _ SHADOWS_SHADOWMASK
             #pragma multi_compile _ DIRLIGHTMAP_COMBINED
@@ -403,7 +366,6 @@ Shader "_lil/[Optional] lilToonFakeShadow"
             #pragma skip_variants DECALS_OFF DECALS_3RT DECALS_4RT DECAL_SURFACE_GRADIENT _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
             #pragma skip_variants VERTEXLIGHT_ON LIGHTPROBE_SH
             #pragma skip_variants _ADDITIONAL_LIGHT_SHADOWS
-            #pragma skip_variants PROBE_VOLUMES_OFF PROBE_VOLUMES_L1 PROBE_VOLUMES_L2
             #pragma skip_variants _SCREEN_SPACE_OCCLUSION
             #pragma skip_variants USE_FPTL_LIGHTLIST USE_CLUSTERED_LIGHTLIST
             #pragma skip_variants _REFLECTION_PROBE_BLENDING _REFLECTION_PROBE_BOX_PROJECTION
@@ -444,6 +406,7 @@ Shader "_lil/[Optional] lilToonFakeShadow"
             #pragma fragment frag
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
             #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+            #pragma multi_compile _ PROBE_VOLUMES_L1 PROBE_VOLUMES_L2
             #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
             #pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
             #pragma multi_compile_fragment _ _REFLECTION_PROBE_BOX_PROJECTION
@@ -452,7 +415,7 @@ Shader "_lil/[Optional] lilToonFakeShadow"
             #pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
             #pragma multi_compile _ _LIGHT_LAYERS
             #pragma multi_compile_fragment _ _LIGHT_COOKIES
-            #pragma multi_compile _ _FORWARD_PLUS
+            #pragma multi_compile _ _CLUSTER_LIGHT_LOOP
             #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
             #pragma multi_compile _ SHADOWS_SHADOWMASK
             #pragma multi_compile _ DIRLIGHTMAP_COMBINED

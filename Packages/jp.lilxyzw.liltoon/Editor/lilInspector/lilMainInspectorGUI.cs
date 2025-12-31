@@ -381,10 +381,6 @@ namespace lilToon
                 GUILayout.Label(GetLoc("sAdvanced"), boldLabel);
 
                 //------------------------------------------------------------------------------------------------------------------------------
-                // Encryption
-                DrawEncryptionSettings();
-
-                //------------------------------------------------------------------------------------------------------------------------------
                 // Stencil
                 if(ShouldDrawBlock(PropertyBlock.Stencil))
                 {
@@ -755,7 +751,7 @@ namespace lilToon
                 {
                     if(ShouldDrawBlock(PropertyBlock.RimShade))
                     {
-                        edSet.isShowRimShade = lilEditorGUI.Foldout("RimShade", edSet.isShowRimShade);
+                        edSet.isShowRimShade = lilEditorGUI.Foldout(GetLoc("sRimShadeSetting"), edSet.isShowRimShade);
                         DrawMenuButton(GetLoc("sAnchorRimShade"), PropertyBlock.RimShade);
                         if(edSet.isShowRimShade)
                         {
@@ -1369,10 +1365,6 @@ namespace lilToon
                 }
 
                 //------------------------------------------------------------------------------------------------------------------------------
-                // Encryption
-                DrawEncryptionSettings();
-
-                //------------------------------------------------------------------------------------------------------------------------------
                 // Refraction
                 if(isRefr && ShouldDrawBlock(PropertyBlock.Refraction))
                 {
@@ -1418,23 +1410,7 @@ namespace lilToon
                         LocalizedPropertyTexture(alphaMaskContent, furMask);
                         LocalizedProperty(furAO);
                         lilEditorGUI.DrawLine();
-                        LocalizedProperty(furMeshType);
-                        if(furMeshType.floatValue == 0)
-                        {
-                            int furLayerNum2 = (int)furLayerNum.floatValue;
-                            EditorGUI.BeginChangeCheck();
-                            EditorGUI.showMixedValue = furLayerNum.hasMixedValue;
-                            furLayerNum2 = lilEditorGUI.IntSlider(GetLoc(Event.current.alt ? furLayerNum.name : "sLayerNum"), furLayerNum2, 1, 3);
-                            EditorGUI.showMixedValue = false;
-                            if(EditorGUI.EndChangeCheck())
-                            {
-                                furLayerNum.floatValue = furLayerNum2;
-                            }
-                        }
-                        else
-                        {
-                            LocalizedProperty(furLayerNum);
-                        }
+                        LocalizedProperty(furLayerNum);
                         lilEditorGUI.MinusRangeGUI(furRootOffset, GetLoc("sRootWidth"));
                         LocalizedProperty(furTouchStrength);
                         lilEditorGUI.DrawLine();
@@ -1604,7 +1580,7 @@ namespace lilToon
                 // Tessellation
                 if(ShouldDrawBlock(PropertyBlock.Tessellation))
                 {
-                    edSet.isShowTess = lilEditorGUI.Foldout(GetLoc("sTessellation"), edSet.isShowTess);
+                    edSet.isShowTess = lilEditorGUI.Foldout(GetLoc("sTessellationSetting"), edSet.isShowTess);
                     DrawMenuButton(GetLoc("sAnchorTessellation"), PropertyBlock.Tessellation);
                     if(edSet.isShowTess)
                     {
