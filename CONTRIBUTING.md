@@ -59,27 +59,26 @@ This allows the enemy to investigate sounds within a defined radius.
 
 Để code dễ quản lý và dễ tìm kiếm, vui lòng tuân thủ theo các quy tắc đặt tên sau:
 
-* **Scripts:** PascalCase (Viết hoa chữ cái đầu mỗi từ).
-Ví dụ: PlayerController.cs, EnemyHealth.cs.
+- **Scripts:** PascalCase (Viết hoa chữ cái đầu mỗi từ).
 
-* Luôn bọc code trong namespace. Ví dụ: `MyGame.Combat`.
+- Luôn bọc code trong namespace.
 
-* **Textures:** Sử dụng `hậu tố` để biết loại texture (quan trọng cho tối ưu bộ nhớ).
+- **Textures:** Sử dụng `hậu tố` để biết loại texture (quan trọng cho tối ưu bộ nhớ).
 
-- `_D` :Diffuse/Color
-- `_N` :Normal Map
-- `_E` :Emission
-- `_R` :Roughness
-- `_M` :Metallic
-- `_H` :Height/Displacement
-- `_AO` :Ambient Occlusion
-- `_Icon`: Dùng cho UI
+	- `_D` :Diffuse/Color
+	- `_N` :Normal Map
+	- `_E` :Emission
+	- `_R` :Roughness
+	- `_M` :Metallic
+	- `_H` :Height/Displacement
+	- `_AO` :Ambient Occlusion
+	- `_Icon`: Dùng cho UI
 
-* **Materials:** Bắt đầu bằng `tiền tố` M_.
-Ví dụ: M_HeroSkin, M_GroundGrass.
+- **Materials:** Bắt đầu bằng `tiền tố` M_.
 
-* **Animation:** Bắt đầu bằng tên đối tượng + hành động.
-Ví dụ: Player_Attack_Light_01, Boss_Roar_Start.
+- **Animation:** Bắt đầu bằng tên đối tượng + hành động.
+
+- Ví dụ: Box_AO, _M_HeroSkin, Player_Attack_Light_01,...
 
 ## Cây thư mục (Project Structure)
 Cấu trúc tổ chức thư mục.
@@ -110,16 +109,14 @@ Assets/
 ```
 
 ## Lưu ý
-
-> [!WARNING]* **File Conflict**
-
+> [!NOTE]
+>  **File Conflict**
 >  * File `.unity` (Scene) là file nhị phân phức tạp, rất khó merge nếu 2 người sửa cùng lúc.
-   ***Giải pháp:***
-   * Thông báo cho team trước khi bạn định sửa một Scene nào đó.
-   * Ưu tiên làm việc trên **Prefabs**. Biến mọi thứ thành Prefab và sửa Prefab đó, hạn chế sửa trực tiếp trên Scene.
-
-> [!WARNING]* **File quá tải (Assets)**
-
+>  ***Giải pháp:***
+>  * Thông báo cho team trước khi bạn định sửa một Scene nào đó.
+>  * Ưu tiên làm việc trên **Prefabs**. Biến mọi thứ thành Prefab và sửa Prefab đó, hạn chế sửa trực tiếp trên Scene.
+>
+> **File quá tải (Assets)**
 >  * Dự án sử dụng **Git LFS** cho các file lớn (Model, Texture, Audio) trên 100MB.
-   * Không commit toàn bộ asset, hãy ignore và chỉ kéo những file cần sử dụng.
-   * Hạn chế commit các file nháp, file PSD/Blend nặng nếu không cần thiết.
+>  * Không commit toàn bộ asset, hãy ignore và chỉ kéo những file cần sử dụng.
+>  * Hạn chế commit các file nháp, file PSD/Blend nặng nếu không cần thiết.
