@@ -3,9 +3,7 @@
 <div align="center">
 
 ![Unity Version](https://img.shields.io/badge/Unity-6000.0.61f1-20232a?style=flat&logo=unity&logoColor=white)
-
 [![License](https://img.shields.io/badge/License-MIT-2ea44f?style=flat)](./LICENSE)
-
 ![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=flat&logo=windows&logoColor=white)
 
 </div>
